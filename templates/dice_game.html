@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knucklebones</title>
+    <link rel="stylesheet" href="knucklebones.css">
+</head>
+
+<body>
+    <div id="player1Card">
+        <div class="icon" id="player1Icon"></div>
+        <p class="name" id="player1Name"></p>
+        <p class="score" id="player1Score"></p>
+        <div class="roll" id="player1Roll"></div>
+    </div>
+
+    <div id="board">
+        <div id="player1Board">
+            <table>
+                <tr>
+                    <td class="diceSlot" id="p1-r3-c1"></td>
+                    <td class="diceSlot" id="p1-r3-c2"></td>
+                    <td class="diceSlot" id="p1-r3-c3"></td>
+                </tr>
+                <tr>
+                    <td class="diceSlot" id="p1-r2-c1"></td>
+                    <td class="diceSlot" id="p1-r2-c2"></td>
+                    <td class="diceSlot" id="p1-r2-c3"></td>
+                </tr>
+                <tr>
+                    <td class="diceSlot" id="p1-r3-c1"></td>
+                    <td class="diceSlot" id="p1-r3-c2"></td>
+                    <td class="diceSlot" id="p1-r3-c3"></td>
+                </tr>
+                <tr>
+                    <td class="columnTotal" id="p1-c1-total"></td>
+                    <td class="columnTotal" id="p1-c2-total"></td>
+                    <td class="columnTotal" id="p1-c3-total"></td>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <div id="player2Board">
+            <table>
+                <tr>
+                    <td class="columnTotal" id="p2-c1-total"></td>
+                    <td class="columnTotal" id="p2-c2-total"></td>
+                    <td class="columnTotal" id="p2-c3-total"></td>
+                </tr>
+                <tr>
+                    <td class="diceSlot" id="p2-r3-c1"></td>
+                    <td class="diceSlot" id="p2-r3-c2"></td>
+                    <td class="diceSlot" id="p2-r3-c3"></td>
+                </tr>
+                <tr>
+                    <td class="diceSlot" id="p2-r2-c1"></td>
+                    <td class="diceSlot" id="p2-r2-c2"></td>
+                    <td class="diceSlot" id="p2-r2-c3"></td>
+                </tr>
+                <tr>
+                    <td class="diceSlot" id="p2-r3-c1"></td>
+                    <td class="diceSlot" id="p2-r3-c2"></td>
+                    <td class="diceSlot" id="p2-r3-c3"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="player2Card">
+        <div class="icon" id="player2Icon"></div>
+        <p class="name" id="player2Name"></p>
+        <p class="score" id="player2Score"></p>
+        <div class="roll" id="player2Roll"></div>
+    </div>
+
+
+    <!-- ************************************************************ -->
+    <script src="knucklebones.js"></script>
+</body>
+
+</html>
