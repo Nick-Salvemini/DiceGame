@@ -1,11 +1,16 @@
 from models import db, User, Match
 import app
+from sqlalchemy import text
 
-db.drop_all()
-db.create_all()
+# db.drop_all()
+# db.create_all()
 
-User.query.delete()
 Match.query.delete()
+User.query.delete()
+
+# sql = text('DROP users CASCADE')
+# db.engine.execute(sql)
+
 
 u1 = User(
     email='test1@gmail.com',

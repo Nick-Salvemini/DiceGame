@@ -18,6 +18,14 @@ debug = DebugToolbarExtension(app)
 connect_db(app)
 app.app_context().push()
 
+# HOMEPAGE
+# **************************************************
+
+
+@app.route('/')
+def homepage():
+    return render_template('home.html')
+
 # HOMEPAGE TO LOGIN
 # **************************************************
 
