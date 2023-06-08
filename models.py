@@ -2,32 +2,135 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+
 def connect_db(app):
     db.app = app
     db.init_app(app)
 
-# users
 
-# id
-# email
-# username
-# password
-# player_icon
-# matches_played_vs_cpu
-# wins_vs_cpu
-# loses_vs_cpu
-# ties_vs_cpu
-# matches_player_vs_player
-# wins_vs_player
-# loses_vs_player
-# ties_vs_player
+class User(db.Model):
+    '''Model for users account data and match history'''
 
-# matches
+    __tablename__ = 'users'
 
-# player_1_id
-# player_1_is_human
-# player_1_score
-# player_2_id
-# player_2_is_human
-# player_2_score
-# match_datetime
+    id = db.Column(
+        db.Integer,
+        primary_key=True,
+        autoincrement=True
+    )
+
+    email = db.Column(
+        db.String,
+        nullable=False,
+        unique=True
+    )
+
+    username = db.Column(
+        db.String,
+        nullable=False,
+        unique=True
+    )
+
+    password = db.Column(
+        db.String,
+        nullable=False
+    )
+
+    # player_icon = db.Column(
+
+    # )
+
+    matches_played_vs_cpu = db.Column(
+        db.Integer,
+        nullable=False,
+        default=0
+    )
+
+    wins_vs_cpu = db.Column(
+        db.Integer,
+        nullable=False,
+        default=0
+    )
+
+    loses_vs_cpu = db.Column(
+        db.Integer,
+        nullable=False,
+        default=0
+    )
+
+    ties_vs_cpu = db.Column(
+        db.Integer,
+        nullable=False,
+        default=0
+    )
+
+    matches_player_vs_player = db.Column(
+        db.Integer,
+        nullable=False,
+        default=0
+    )
+
+    wins_vs_player = db.Column(
+        db.Integer,
+        nullable=False,
+        default=0
+    )
+
+    loses_vs_player = db.Column(
+        db.Integer,
+        nullable=False,
+        default=0
+    )
+
+    ties_vs_player = db.Column(
+        db.Integer,
+        nullable=False,
+        default=0
+    )
+
+
+class Match(db.Model):
+    '''Model for information on each individual match'''
+
+    __tablename__ = 'matches'
+
+    id = db.Column(
+        db.Integer,
+        primary_key=True,
+        autoincrement=True
+    )
+
+    player_1_id = db.Column(
+        db.Integer,
+        db.ForeignKey('users.id')
+    )
+
+    player_1_is_human = db.Column(
+        db.Boolean,
+    )
+
+    player_1_score = db.Column(
+        db.Integer,
+        default=0
+    )
+
+    player_2_id = db.Column(
+        db.Integer,
+        db.ForeignKey('users.id'),
+        default=0
+    )
+
+    player_2_is_human = db.Column(
+        db.Boolean,
+    )
+
+    player_2_score = db.Column(
+        db.Integer,
+        default=0
+    )
+
+    match_datetime = db.Column(
+        db.DateTime
+    )
+
+    users = db.relationship('User')
